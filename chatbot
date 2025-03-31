@@ -1,0 +1,32 @@
+from dotenv import load_dotenv
+from openai import OpenAI
+import os
+
+# Loading .env
+load_dotenv()
+
+# Getting the api_key
+api_key = os.getenv("API_KEY")
+
+# Initializing OpenAI client
+client = OpenAI(api_key=api_key)
+
+def generate_response(text):
+    response = client.responses.create(
+        model="gpt-4o",
+        input=text
+    )
+    return response.output_text
+
+def main():
+    while True:
+        user_message = input("\nYou: ")
+
+        if user_message.lower() == "exit":
+            break
+        chatbot_response = generate_response(user_message)
+
+        print(f"Chatbot: {chatbot_response}")
+
+if __name__ == "__main__":
+    main()
