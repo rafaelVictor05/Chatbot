@@ -54,7 +54,7 @@ Displays the chatbot's response.
 Ends the conversation when the user types "exit".
 
 Running the Project
-To start the chatbot, simply run the script with:
+    To start the chatbot, simply run the script with:
     ```
     python chatbot.py
     ```
